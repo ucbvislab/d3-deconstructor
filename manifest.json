@@ -1,0 +1,42 @@
+{
+    "manifest_version": 2,
+
+    "name": "D3 Deconstructor",
+    "description": "This extension allows the user to deconstruct D3 visualizations on a page.",
+    "version": "1.0",
+    "icons": {
+        "16": "d3logo.png",
+        "128": "d3logo.png"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["file:///*/*", "http://*/*", "https://*/*"],
+            "css": ["content.css"],
+            "js": ["js/content.js"]
+        }
+    ],
+
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+
+    "browser_action": {
+        "default_icon": "d3logo.png",
+        "default_title": "D3 Deconstructor"
+    },
+
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "contextMenus"
+    ],
+
+    "web_accessible_resources": [
+        "js/d3check.js",
+        "build/restyling.js",
+        "build/injected.js"
+    ],
+
+    "content_security_policy": "script-src 'unsafe-eval' 'self'; object-src 'self'"
+}

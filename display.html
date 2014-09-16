@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app="restylingApp">
+<head>
+    <meta charset="utf-8">
+    <title>D3 Deconstructor</title>
+
+    <link rel="stylesheet" type="text/css" href="display.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css"/>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script src="build/restyling.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <!--<div id="sidebar-wrapper">-->
+        <!--<span ng-include src="'partials/mappingsList.html'"></span>-->
+        <!--<span ng-include src="'partials/addMappings.html'"></span>-->
+    <!--</div>-->
+
+    <div id="page-content-wrapper">
+        <div class="page-content">
+            <div ng-include src="'partials/dataTable.html'"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

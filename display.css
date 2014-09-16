@@ -1,0 +1,228 @@
+.mapCol {
+    float: left;
+    width: 50%;
+}
+
+div.panel div.linear {
+    background-color: #beaed4;
+}
+
+div.panel div.nominal {
+    background-color: #7fc97f;
+}
+
+body.ng-scope {
+    font-size: 8pt;
+}
+
+h3.sectionHeader {
+    font-size: 12px;
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+
+div.bottomSticky {
+    z-index: 100;
+    height: 35%;
+    margin-right: -180px;
+    right: 180px;
+    width: 180px;
+    position: fixed;
+    overflow-y: auto;
+    transition: all 0.4s ease 0s;
+    display: table-row;
+    padding: 3px;
+    bottom: 0px;
+    background-color: #d9edf7;
+    border-left: 1px solid grey;
+}
+
+table.changeMapping {
+    margin-bottom: 3px;
+}
+
+div.dataContainer {
+    padding-left: 5px;
+}
+
+td input.form-control {
+    height: 20px;
+    font-size: 8pt;
+}
+
+div.panel-group {
+    margin-bottom: 3px;
+}
+
+div.panel div.panel-heading {
+    padding: 0px 10px;
+}
+
+table.dataTable {
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 3px !important;
+    vertical-align: center !important;
+}
+
+.dataTable>thead>tr>th, .dataTable>tbody>tr>th, .dataTable>tfoot>tr>th, .dataTable>thead>tr>td, .dataTable>tbody>tr>td, .dataTable>tfoot>tr>td {
+    padding: 0px !important;
+    vertical-align: middle;
+}
+
+tr.selectedRow {
+    background-color: darkgrey;
+}
+
+table tr th span.rowHead {
+    color: #000;
+    display: block;
+    /*Firefox*/
+    -moz-transform: rotate(-90deg);
+    /*Safari*/
+    -webkit-transform: rotate(-90deg);
+    /*Opera*/
+    -o-transform: rotate(-90deg);
+    /*IE*/
+    writing-mode: tb-rl;
+    filter: flipv fliph;
+    border:0px black solid;
+
+}
+
+.delete-mapping-btn {
+    float: right;
+    padding: 1px 2px;
+    border: 0px;
+    box-shadow: none;
+    background-image: none;
+}
+
+.controlPanel {
+    border: 1px solid black;
+    background-color: #E2E4FF;
+    padding: 10px;
+    margin: 10px;
+}
+
+#panelButtons {
+    border: 1px solid blue;
+}
+
+.selected {
+    background-color: #AAA !important;
+}
+
+.form-group	{
+    padding: 5px;
+}
+
+.table {
+    font-size:8pt;
+}
+
+td {
+    padding: 0px;
+    margin: 0px;
+}
+
+button.deconButton {
+    line-height: 1;
+    font-size: 8pt;
+    padding: 3px;
+    width: 70px;
+    height: 16px;
+}
+
+button.deconButton span.caret {
+    float:right;
+}
+
+li.deconDropDownItem {
+    line-height: 0.5;
+    font-size: 8pt;
+    padding: 3px 0px;
+    min-width: 70px;
+}
+
+ul.dropdown-menu {
+    min-width: 70px;
+    padding: 0px;
+}
+
+.dropdown-menu li.deconDropDownItem a {
+    padding: 0px 3px;
+    line-height: 1;
+}
+
+.dropdown-menu li a.mappedAttrLink {
+    color: red;
+}
+
+#wrapper {
+    padding-right: 100px;
+    transition: all 0.4s ease 0s;
+}
+
+div.mapping-group {
+    overflow-y: auto;
+    height: 65%;
+    display: table-row;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    padding: 3px;
+    background-color: #F5F5F5;
+}
+
+#sidebar-wrapper {
+    margin-right: -180px;
+    right: 180px;
+    width: 180px;
+    background-color: #F5F5F5;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: all 0.4s ease 0s;
+    padding: 3px;
+    border-left: 1px solid grey;
+}
+
+#page-content-wrapper {
+    width: 100%;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 180px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width:367px) {
+
+    #wrapper {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        left: 0;
+    }
+
+    #wrapper.active {
+        position: relative;
+        left: 300px;
+    }
+
+    #wrapper.active #sidebar-wrapper {
+        left: 300px;
+        width: 300px;
+        transition: all 0.4s ease 0s;
+    }
+
+}

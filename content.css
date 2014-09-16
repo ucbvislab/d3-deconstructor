@@ -1,0 +1,51 @@
+.mouseOn {
+  background-color: #bcd5eb !important;
+  outline: 2px solid #5166bb !important;
+}
+
+.custom-menu {
+  display: none;
+  z-index:1000;
+  position: absolute;
+  background-color:#EEE;
+  border: 1px solid #AAA;
+  overflow: hidden;
+  width: 175px;
+  white-space:nowrap;
+  list-style-type: none;
+  list-style-position: none;
+}
+
+.custom-menu li {
+  margin-left:-0px;
+  padding: 3px;
+}
+
+.custom-menu li:hover {
+  background-color: #DDD;
+}
+  
+.sideBar {
+	position: fixed;
+	z-index: 1000;
+}
+
+.sideBar.boxLeft
+{
+width: 200px;
+float:left;
+padding: 0px 0px 0px 0px;
+left:0px;
+background-color:#eee;
+top:30%;
+}
+
+.storylink
+{
+  background-color: yellow;
+}
+
+.ui-widget-content
+{
+	background: white;
+}
