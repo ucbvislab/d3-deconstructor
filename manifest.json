@@ -33,9 +33,18 @@
     ],
 
     "web_accessible_resources": [
-        "js/d3check.js",
-        "build/restyling.js",
-        "build/injected.js"
+        "bower_components/sylvester/sylvester.js",
+        "bower_components/d3deconstructor/deconstructor.js",
+        "bower_components/underscore/underscore.js",
+        "bower_components/jquery/dist/jquery.js",
+        "js/app.js",
+        "js/content.js",
+        "js/DataTableController.js",
+        "js/directives.js",
+        "js/filters.js",
+        "js/SchemaModel.js",
+        "js/services.js",
+        "js/injected.js"
     ],
 
     "content_security_policy": "script-src 'unsafe-eval' 'self'; object-src 'self'"

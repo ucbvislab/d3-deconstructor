@@ -1,7 +1,3 @@
-var angular = require('../lib/angular');
-var $ = require('jquery');
-var _ = require('underscore');
-
 var restylingApp = angular.module('restylingApp');
 
 restylingApp.service('VisDataService', ['Schema', '$rootScope',  function(Schema, $rootScope) {

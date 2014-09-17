@@ -1,6 +1,3 @@
-var angular = require('../../lib/angular');
-var _ = require('underscore');
-
 var restylingApp = angular.module('restylingApp');
 
 function Schema(data, attrs, nodeAttrs, ids, mappings) {
@@ -98,5 +95,3 @@ Schema.fromDeconData = function(deconData) {
 restylingApp.factory('Schema', function () {
     return Schema;
 });
-
-module.exports = Schema;

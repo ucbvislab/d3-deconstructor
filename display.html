@@ -5,18 +5,25 @@
     <title>D3 Deconstructor</title>
 
     <link rel="stylesheet" type="text/css" href="display.css"/>
-    <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css"/>
-    <script src="lib/jquery.js"></script>
-    <script src="lib/bootstrap.js"></script>
-    <script src="build/restyling.js"></script>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/FileSaver/FileSaver.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/d3deconstructor/deconstructor.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/DataTableController.js"></script>
+    <script src="js/SchemaModel.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/filters.js"></script>
+
 </head>
 <body>
 <div id="wrapper">
-    <!--<div id="sidebar-wrapper">-->
-        <!--<span ng-include src="'partials/mappingsList.html'"></span>-->
-        <!--<span ng-include src="'partials/addMappings.html'"></span>-->
-    <!--</div>-->
-
     <div id="page-content-wrapper">
         <div class="page-content">
             <div ng-include src="'partials/dataTable.html'"></div>

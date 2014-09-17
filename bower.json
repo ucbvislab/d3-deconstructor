@@ -1,0 +1,26 @@
+{
+  "name": "decon-plugin",
+  "version": "0.0.0",
+  "homepage": "https://github.com/harperj/decon-plugin",
+  "authors": [
+    "Jonathan Harper <jharper@eecs.berkeley.edu>"
+  ],
+  "description": "Chrome plugin for deconstructing D3 visualizations.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "underscore": "~1.7.0",
+    "angular": "1.3.0-rc.2",
+    "bootstrap": "~3.2.0",
+    "FileSaver": "*",
+    "d3": "~3.4.11",
+    "d3deconstructor": "harperj/d3deconstructor"
+  }
+}

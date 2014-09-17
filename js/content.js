@@ -8,7 +8,11 @@ if (window === top) {
         if (req.type == "pageActionClicked") {
             if (!alreadyInjected) {
                 // User clicked the page action for the first time, so we inject the main plugin script
-                injectJS(chrome.extension.getURL('build/injected.js'));
+                injectJS(chrome.extension.getURL('bower_components/underscore/underscore.js'));
+                injectJS(chrome.extension.getURL('bower_components/jquery/dist/jquery.js'));
+                injectJS(chrome.extension.getURL('bower_components/sylvester/sylvester.js'));
+                injectJS(chrome.extension.getURL('bower_components/d3deconstructor/deconstructor.js'));
+                injectJS(chrome.extension.getURL('js/injected.js'));
                 alreadyInjected = true;
                 document.addEventListener('deconDataEvent', function(event) {
                     initRestylingInterface(event.detail);

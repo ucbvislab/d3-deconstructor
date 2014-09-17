@@ -1,0 +1,1 @@
+var restylingApp = angular.module('restylingApp', []);

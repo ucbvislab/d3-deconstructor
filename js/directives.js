@@ -1,8 +1,3 @@
-var _ = require('underscore');
-var $ = require('jquery');
-var angular = require('../lib/angular');
-var d3 = require('d3');
-
 var restylingApp = angular.module('restylingApp');
 
 restylingApp.directive('ngRightClick', function($parse) {

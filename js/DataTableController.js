@@ -1,20 +1,10 @@
-var _ = require('underscore');
-var angular = require('../../lib/angular');
-var VisDeconstruct = require('d3deconstructor');
-var saveAs = require('filesaver.js');
-
-window.saveAs = saveAs;
-
 var restylingApp = angular.module('restylingApp');
 
 restylingApp.controller('DataTableController', ['$scope', 'orderByFilter', 'VisDataService',
     function($scope, orderByFilter, visDataService) {
-        window.dataScope = $scope;
         $scope.selectedVis = visDataService.selectedVis;
         $scope.visSelectorVal = 0;
-
         $scope.visDataService = visDataService;
-        window.visDataService = visDataService;
         $scope.data = visDataService.data;
 
         $scope.ids = visDataService.ids;
