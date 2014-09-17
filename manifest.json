@@ -33,10 +33,10 @@
     ],
 
     "web_accessible_resources": [
-        "bower_components/sylvester/sylvester.js",
-        "bower_components/d3deconstructor/deconstructor.js",
-        "bower_components/underscore/underscore.js",
-        "bower_components/jquery/dist/jquery.js",
+        "node_modules/d3deconstructor/deconstructor.js",
+        "node_modules/underscore/underscore.js",
+        "node_modules/jquery/dist/jquery.js",
+        "dist/injected.js",
         "js/app.js",
         "js/content.js",
         "js/DataTableController.js",

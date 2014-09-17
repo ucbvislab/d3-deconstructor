@@ -1,0 +1,42 @@
+{
+  "name": "decon-plugin",
+  "description": "",
+  "version": "0.0.0",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harperj/decon-plugin.git"
+  },
+  "author": "Jonathan Harper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harperj/decon-plugin/issues"
+  },
+  "homepage": "https://github.com/harperj/decon-plugin",
+  "browserify-shim": {
+    "lib/angular.js": {
+      "exports": "angular"
+    }
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "devDependencies": {
+    "bootstrap": "^3.2.0",
+    "browserify": "^5.11.2",
+    "browserify-shim": "^3.7.0",
+    "d3": "^3.4.11",
+    "d3deconstructor": "git://github.com/harperj/d3deconstructor",
+    "filesaver.js": "^0.1.0",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.0.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "jquery": "^2.1.1",
+    "underscore": "^1.7.0"
+  }
+}

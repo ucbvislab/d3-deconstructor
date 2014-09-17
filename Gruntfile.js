@@ -5,12 +5,8 @@ module.exports = function(grunt) {
                 debug: true
             },
             injected: {
-                src: ['app/injected.js'],
-                dest: 'build/injected.js'
-            },
-            restyling: {
-                src: ['js/app.js'],
-                dest: 'build/app.js'
+                src: ['js/injected.js'],
+                dest: 'dist/injected.js'
             }
         },
         watch: {
