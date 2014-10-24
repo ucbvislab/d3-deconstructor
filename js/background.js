@@ -1,7 +1,7 @@
 "use strict";
 (function () {
     chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-        if (message.type == "initRestyling") {
+        if (message.type == "initView") {
             chrome.windows.create({url: chrome.extension.getURL('display.html')});
             sendResponse({ });
         }
@@ -13,13 +13,13 @@
     });
 
     chrome.contextMenus.create({
-        title: "Deconstruct page",
+        title: "Deconstruct visualization",
         contexts:["page"],
         onclick: deconstruct
     });
 
-    function deconstruct(clickData, tab) {
-        chrome.tabs.sendRequest(tab.id, {type: "pageActionClicked"});
+    function deconstruct(tab) {
+        chrome.tabs.sendRequest(tab.id, {type: "deconstructVis"});
     }
 
 })();

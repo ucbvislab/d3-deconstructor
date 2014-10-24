@@ -1,0 +1,57 @@
+<div class="mapping-group" ng-controller="MappingsListController">
+    <span class="sectionHeader">Mappings:</span>
+    <div class="panel-group" id="mappings" ng-repeat="mapping in data[selectedSchema.val].mappings">
+        <div class="panel panel-default">
+            <div ng-if="!isLinear(mapping)" class="nominal panel-heading btn-toolbar">
+                <a data-toggle="collapse" style="color:black;" data-parent="#mappings" href="#mapping{{$index}}">
+                    {{mapping.data}} &#10141; {{mapping.attr}}
+                </a>
+            </div>
+            <div ng-if="isLinear(mapping)" class="linear panel-heading btn-toolbar">
+                <a data-toggle="collapse" style="color:black;" data-parent="#mappings" href="#mapping{{$index}}">
+                    <span ng-repeat="datum in mapping.data">{{datum}}<span ng-if="!$last">,</span> </span> &#10141; {{mapping.attr}}
+                </a>
+            </div>
+
+            <div id="mapping{{$index}}" class="panel-collapse collapse" ng-if="mapping.type === 'nominal'">
+                <table class="changeMapping table">
+                    <tr>
+                        <th>
+                            {{mapping.data}}
+                        </th>
+                        <th>
+                            {{mapping.attr}}
+                        </th>
+                    </tr>
+                    <tr ng-repeat="(from, to) in mapping.params">
+                        <td>
+                            {{from}}
+                        </td>
+                        <td>
+                            {{to}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="mapping{{$index}}" class="panel-collapse collapse" ng-if="mapping.type === 'linear'">
+                <table class="changeMapping table">
+                    <tr>
+                        <th></th>
+                        <th>
+                            {{mapping.attr}} =
+                        </th>
+                    </tr>
+                    <tr ng-repeat="coeff in mapping.params.coeffs">
+                        <td>
+                            <span ng-if="$index !== 0">+</span>
+                            <span ng-if="$index !== mapping.data.length">{{mapping.data[$index]}}&nbsp;*</span>
+                        </td>
+                        <td>
+                            {{coeff}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

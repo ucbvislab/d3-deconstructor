@@ -69,7 +69,13 @@ Schema.prototype.getDataCSVBlob = function() {
     for (var i = 0; i < dataLen; ++i) {
         var dataRow = [];
         for (var j = 0; j < keys.length; ++j) {
-            dataRow.push(this.data[keys[j]][i]);
+            var dataVal = this.data[keys[j]][i];
+            if (typeof dataVal === "string") {
+                dataRow.push(dataVal.replace(",", ""));
+            }
+            else {
+                dataRow.push(dataVal);
+            }
         }
         console.log(dataRow);
         dataRow = dataRow.join(",");

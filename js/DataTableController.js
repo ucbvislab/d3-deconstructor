@@ -2,10 +2,14 @@ var restylingApp = angular.module('restylingApp');
 
 restylingApp.controller('DataTableController', ['$scope', 'orderByFilter', 'VisDataService',
     function($scope, orderByFilter, visDataService) {
+
         $scope.selectedVis = visDataService.selectedVis;
+        $scope.selectSchema = visDataService.selectSchema;
+
         $scope.visSelectorVal = 0;
         $scope.visDataService = visDataService;
-        $scope.data = visDataService.data;
+        $scope.data = visDataService.visData;
+
 
         $scope.ids = visDataService.ids;
         $scope.selectedRows = [];
@@ -55,11 +59,8 @@ restylingApp.controller('DataTableController', ['$scope', 'orderByFilter', 'VisD
             return schemaInd;
         };
 
-        $scope.selectSchema = visDataService.selectSchema;
-
         $scope.selectRow = function(schema, ind) {
-
-            var rowSchemaInd = $scope.data.indexOf(schema);
+            var rowSchemaInd = visDataService.visData.indexOf(schema);
             if (rowSchemaInd !== visDataService.getSelected()) {
                 visDataService.selectSchema($scope.data[rowSchemaInd]);
             }
@@ -93,8 +94,6 @@ restylingApp.controller('DataTableController', ['$scope', 'orderByFilter', 'VisD
                     nodeAttrs: [],
                     mappings: []
                 };
-                console.log("Selected rows:");
-                console.log($scope.selectedRows);
 
                 _.each($scope.selectedRows, function(ind, count) {
                     newSchema.ids.push(schema.ids[ind]);
@@ -125,12 +124,8 @@ restylingApp.controller('DataTableController', ['$scope', 'orderByFilter', 'VisD
                 newSchema.numNodes = newSchema.ids.length;
                 schema.numNodes = schema.ids.length;
 
-                console.log(schema);
                 schema.mappings = VisDeconstruct.extractMappings(schema);
-                console.log("new schema");
-                console.log(newSchema);
                 newSchema.mappings = VisDeconstruct.extractMappings(newSchema);
-                console.log(newSchema);
                 $scope.data.push(newSchema);
                 $scope.selectedRows = [];
             }

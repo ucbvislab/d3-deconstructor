@@ -13,7 +13,7 @@
         {
             "matches": ["file:///*/*", "http://*/*", "https://*/*"],
             "css": ["content.css"],
-            "js": ["js/content.js"]
+            "js": ["js/content.js", "node_modules/jquery/dist/jquery.js"]
         }
     ],
 
@@ -33,19 +33,8 @@
     ],
 
     "web_accessible_resources": [
-        "node_modules/d3deconstructor/deconstructor.js",
-        "node_modules/underscore/underscore.js",
-        "node_modules/jquery/dist/jquery.js",
-        "dist/injected.js",
-        "js/app.js",
-        "js/content.js",
-        "js/DataTableController.js",
-        "js/directives.js",
-        "js/filters.js",
-        "js/SchemaModel.js",
-        "js/services.js",
-        "js/injected.js"
-    ],
-
-    "content_security_policy": "script-src 'unsafe-eval' 'self'; object-src 'self'"
+        "node_modules/*",
+        "dist/*",
+        "js/*"
+    ]
 }

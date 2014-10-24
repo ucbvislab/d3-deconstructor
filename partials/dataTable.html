@@ -1,35 +1,35 @@
 <div ng-controller="DataTableController">
-    <div>
+    <div class="saveDataForm">
         <form>
+            <span style="font-size: 10pt;">Export data as one or more files.</span><br />
             <label>
-                <span><b>Export data as one or more files.</b> Select a file name </span><br />
-                <span><b>File name:</b></span>
+                File name:
                 <input ng-model="saveFilename" type="text" name="filename" />
             </label>
-            <button ng-click="saveData()">Save</button>
-            <button ng-click="saveVisDataCSV()">Save all as CSV</button>
             <br />
-            <label>
-                Visualization {{selectedVis.val+1}} selected out of {{visDataService.pageData.length}} found on page. <br />
-                Select a visualization:
-                <select ng-change="changeVis()"
-                        ng-model="visSelectorVal">
-                    <option ng-repeat="num in getNumber(visDataService.pageData.length) track by $index"
-                            value="{{$index}}">
-                        {{$index+1}}
-                    </option>
-                </select>
-            </label>
+            <button ng-click="saveData()">Save as JSON</button>
+            <button ng-click="saveVisDataCSV()">Save as CSV</button>
         </form>
     </div>
+    <div style="font-size: 10pt;">
+        Visualization <b style="font-size: 10pt">{{selectedVis.val+1}}</b> selected out of <b style="font-size: 10pt">{{visDataService.pageData.length}}</b> found on page. <br />
+        <b style="font-size: 10pt">Select a visualization:</b>
+        <select ng-change="changeVis()"
+                ng-model="visSelectorVal">
+            <option ng-repeat="num in getNumber(visDataService.pageData.length) track by $index"
+                    value="{{$index}}">
+                {{$index+1}}
+            </option>
+        </select>
+    </div>
+    <br />
 
     <div class="dataContainer" ng-repeat="schema in visDataService.visData | orderBy:'numFields':true">
-        <h3 ng-click="selectSchema(schema)" class="sectionHeader">Data Table {{$index+1}}</h3>
-        <button ng-click="saveSchemaDataCSV(schema, $index+1)">Save CSV</button>
+        <span><span ng-click="selectSchema(schema)" class="sectionHeader">Data Table {{$index+1}}</span> <button ng-click="saveSchemaDataCSV(schema, $index+1)">Save CSV</button></span>
         <table class="table dataTable" ng-right-click="splitSchema()">
             <thead ng-click="">
             <tr class="headerRow">
-                <th ng-if="hasMarks(schema)">Mark</th>
+                <!--<th ng-if="hasMarks(schema)">Mark</th>-->
                 <th ng-if="hasMarks(schema)">deconID</th>
                 <th ng-repeat="(dataField, dataValues) in schema.data" ng-if="dataField !== 'deconID'">
                     {{dataField}}
@@ -38,7 +38,9 @@
             </thead>
             <tr ng-repeat="row in getNumber(getSchemaSize(schema)) track by $index" ng-click="selectRow(schema, $index)"
                 ng-class="{selectedRow: rowIsSelected(schema, $index)}">
-                <td ng-if="hasMarks(schema)"><svg-inject ind="$index" schema="schema"></svg-inject></td>
+                <!--<td ng-if="hasMarks(schema)">-->
+                    <!--&lt;!&ndash;<svg-inject ind="$index" schema="schema"></svg-inject>&ndash;&gt;-->
+                <!--</td>-->
                 <td ng-if="hasMarks(schema)">{{schema.data['deconID'][$index]}}</td>
                 <td ng-repeat="(dataField, dataValues) in schema.data" ng-if="dataField != 'deconID'">{{dataValues[$parent.$parent.$index]}}</td>
             </tr>

@@ -1,12 +1,13 @@
 var restylingApp = angular.module('restylingApp');
 
-restylingApp.service('VisDataService', ['Schema', '$rootScope',  function(Schema, $rootScope) {
+restylingApp.service('VisDataService', ['Schema', '$rootScope', '$timeout',  function(Schema, $rootScope, timer) {
     var port;
     var pageData = [];
     var visData = [];
     var ids = [];
     var selectedVis = {val: 0};
     var selectedSchema = {val: 0};
+    var dataLoading = {val: false};
 
     function updateNodes(attr, val, ids) {
         var message = {
@@ -21,10 +22,7 @@ restylingApp.service('VisDataService', ['Schema', '$rootScope',  function(Schema
     }
 
     function selectSchema(schema) {
-        console.log(visData);
         selectedSchema.val = visData.indexOf(schema);
-        var selectedRows = [];
-        console.log(selectedSchema.val);
     }
 
     function getSelected() {
@@ -52,12 +50,8 @@ restylingApp.service('VisDataService', ['Schema', '$rootScope',  function(Schema
         });
     }
 
-    console.log("about to listen for incoming data");
     chrome.runtime.onMessage.addListener(function(message, sender) {
-        console.log("received message");
-        console.log(message);
         if (message.type === "restylingData") {
-            console.log("received restyling data message.");
             $rootScope.$apply(function() {
                 var data = message.data;
                 data = $.extend([], data);
@@ -69,6 +63,18 @@ restylingApp.service('VisDataService', ['Schema', '$rootScope',  function(Schema
                 selectVis(selectedVis.val);
 
                 port = chrome.tabs.connect(sender.tab.id, {name: 'd3decon'});
+            });
+            $rootScope.$apply(function() {
+                var notLoading = function() {
+                    dataLoading.val = false;
+                };
+                timer(notLoading, 0);
+            });
+        }
+        if (message.type === "loadingInit") {
+            console.log("received loading init message");
+            $rootScope.$apply(function() {
+                dataLoading.val = true;
             });
         }
     });
@@ -109,6 +115,7 @@ restylingApp.service('VisDataService', ['Schema', '$rootScope',  function(Schema
         pageData: pageData,
         selectedVis: selectedVis,
         visData: visData,
-        selectVis: selectVis
+        selectVis: selectVis,
+        dataLoading: dataLoading
     }
 }]);
