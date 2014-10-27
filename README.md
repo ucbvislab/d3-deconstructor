@@ -31,4 +31,4 @@ To install, clone this git repository.  Then, navigate to the cloned folder, ins
     npm install
     grunt browserify
 
-Finally, navigate to chrome://extensions in Chrome, click "Load unpacked extension..." and select the folder.
+Finally, navigate to chrome://extensions in Chrome, click "Load unpacked extension..." and select the cloned folder.
