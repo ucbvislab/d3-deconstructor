@@ -2,7 +2,7 @@
   "name": "decon-plugin",
   "description": "",
   "version": "0.0.0",
-  "main": "Gruntfile.js",
+  "main": "./js/app-common.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -42,6 +42,7 @@
     "grunt-contrib-copy": "^0.4.1",
     "grunt-contrib-nodeunit": "^0.1.2",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-npm-install": "^0.1.0",
     "jquery": "^2.1.1",
     "underscore": "^1.7.0"
   }
