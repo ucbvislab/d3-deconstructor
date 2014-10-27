@@ -1,6 +1,8 @@
-var restylingApp = angular.module('restylingApp');
+var angular = require('angular');
 
-restylingApp.controller('DataLoadingController', ['$scope', 'VisDataService',
+var deconApp = angular.module('deconApp');
+
+deconApp.controller('DataLoadingController', ['$scope', 'VisDataService',
     function($scope, visDataService) {
         $scope.visDataService = visDataService;
     }

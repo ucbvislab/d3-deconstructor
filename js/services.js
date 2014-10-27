@@ -1,6 +1,8 @@
-var restylingApp = angular.module('restylingApp');
+var angular = require('angular');
+var _ = require('underscore');
+var deconApp = angular.module('deconApp');
 
-restylingApp.service('VisDataService', ['Schema', '$rootScope', '$timeout',  function(Schema, $rootScope, timer) {
+deconApp.service('VisDataService', ['Schema', '$rootScope', '$timeout',  function(Schema, $rootScope, timer) {
     var port;
     var pageData = [];
     var visData = [];

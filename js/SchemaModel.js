@@ -1,4 +1,6 @@
-var restylingApp = angular.module('restylingApp');
+var angular = require('angular');
+var _ = require('underscore');
+var deconApp = angular.module('deconApp');
 
 function Schema(data, attrs, nodeAttrs, ids, mappings) {
     this.data = data;
@@ -98,6 +100,6 @@ Schema.fromDeconData = function(deconData) {
 };
 
 
-restylingApp.factory('Schema', function () {
+deconApp.factory('Schema', function () {
     return Schema;
 });

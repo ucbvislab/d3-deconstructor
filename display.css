@@ -99,13 +99,7 @@ tr.selectedRow {
 table tr th span.rowHead {
     color: #000;
     display: block;
-    /*Firefox*/
-    -moz-transform: rotate(-90deg);
-    /*Safari*/
     -webkit-transform: rotate(-90deg);
-    /*Opera*/
-    -o-transform: rotate(-90deg);
-    /*IE*/
     writing-mode: tb-rl;
     filter: flipv fliph;
     border:0px black solid;
@@ -144,8 +138,8 @@ table tr th span.rowHead {
 }
 
 td {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 button {

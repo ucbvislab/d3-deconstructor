@@ -1,6 +1,7 @@
-var restylingApp = angular.module('restylingApp');
+var angular = require('angular');
+var deconApp = angular.module('deconApp');
 
-restylingApp.controller('MappingsListController', ['$scope', 'VisDataService',
+deconApp.controller('MappingsListController', ['$scope', 'VisDataService',
     function($scope, visDataService) {
         $scope.data = visDataService.visData;
         $scope.ids = visDataService.ids;

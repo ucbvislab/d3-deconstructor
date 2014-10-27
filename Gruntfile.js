@@ -7,6 +7,10 @@ module.exports = function(grunt) {
             injected: {
                 src: ['js/injected.js'],
                 dest: 'dist/injected.js'
+            },
+            ngapp: {
+                src: ['js/app.js'],
+                dest: 'dist/app.js'
             }
         },
         watch: {

@@ -1,6 +1,9 @@
-var restylingApp = angular.module('restylingApp');
+var angular = require('angular');
+var deconApp = angular.module('deconApp');
+var d3 = require('d3');
+var _ = require('underscore');
 
-restylingApp.directive('ngRightClick', function($parse) {
+deconApp.directive('ngRightClick', function($parse) {
     return function(scope, element, attrs) {
         var fn = $parse(attrs.ngRightClick);
         element.bind('contextmenu', function(event) {
@@ -11,45 +14,45 @@ restylingApp.directive('ngRightClick', function($parse) {
         });
     };
 });
+//
+//deconApp.directive('fileUpload', [function() {
+//    return {
+//        scope: {
+//            fileUpload: "="
+//        },
+//        link: function(scope, element, attrs) {
+//            element.bind("change", function (event) {
+//                var schemaData = {};
+//                var schemaDataLength = 0;
+//                Papa.parse(event.target.files[0], {
+//                    dynamicTyping: true,
+//                    complete: function (csv) {
+//                        console.log(csv);
+//                        schemaDataLength = csv.data.length;
+//                        for (var i = 1; i < csv.data.length; ++i) {
+//                            for (var j = 0; j < csv.data[0].length; ++j) {
+//                                var key = csv.data[0][j];
+//                                if (schemaData[key]) {
+//                                    schemaData[key].push(csv.data[i][j]);
+//                                }
+//                                else {
+//                                    schemaData[key] = [csv.data[i][j]];
+//                                }
+//                            }
+//                        }
+//                        console.log(schemaData);
+//                        scope.$apply(function() {
+//                            scope.$parent.loadedSchemaData = schemaData;
+//                            scope.$parent.loadedSchemaDataLength = schemaDataLength;
+//                        });
+//                    }
+//                });
+//            });
+//        }
+//    }
+//}]);
 
-restylingApp.directive('fileUpload', [function() {
-    return {
-        scope: {
-            fileUpload: "="
-        },
-        link: function(scope, element, attrs) {
-            element.bind("change", function (event) {
-                var schemaData = {};
-                var schemaDataLength = 0;
-                Papa.parse(event.target.files[0], {
-                    dynamicTyping: true,
-                    complete: function (csv) {
-                        console.log(csv);
-                        schemaDataLength = csv.data.length;
-                        for (var i = 1; i < csv.data.length; ++i) {
-                            for (var j = 0; j < csv.data[0].length; ++j) {
-                                var key = csv.data[0][j];
-                                if (schemaData[key]) {
-                                    schemaData[key].push(csv.data[i][j]);
-                                }
-                                else {
-                                    schemaData[key] = [csv.data[i][j]];
-                                }
-                            }
-                        }
-                        console.log(schemaData);
-                        scope.$apply(function() {
-                            scope.$parent.loadedSchemaData = schemaData;
-                            scope.$parent.loadedSchemaDataLength = schemaDataLength;
-                        });
-                    }
-                });
-            });
-        }
-    }
-}]);
-
-restylingApp.directive('svgInject', function($compile) {
+deconApp.directive('svgInject', function($compile) {
     return {
         scope: {
             schema: "=schema",

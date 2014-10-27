@@ -1,6 +1,7 @@
-var restylingApp = angular.module('restylingApp');
+var angular = require('angular');
+var deconApp = angular.module('deconApp');
 
-restylingApp.filter('range', function() {
+deconApp.filter('range', function() {
     return function(input, total) {
         total = parseInt(total);
         for (var i=0; i<total; i++)
