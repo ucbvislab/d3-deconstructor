@@ -18,8 +18,9 @@
         onclick: deconstruct
     });
 
-    function deconstruct(tab) {
+    function deconstruct(info, tab) {
         chrome.tabs.sendRequest(tab.id, {type: "deconstructVis"});
+        console.log("sending deconstruct request");
     }
 
 })();

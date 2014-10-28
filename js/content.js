@@ -10,6 +10,7 @@ if (window === top) {
         else if (req.type == "deconstructVis") {
             var evt = document.createEvent("CustomEvent");
             evt.initCustomEvent("nodeDeconEvent", true, true);
+            console.log("sending node decon event");
             document.dispatchEvent(evt);
         }
     });
@@ -22,7 +23,6 @@ function initRestylingInterface(visData) {
                 data: {}
             });
 
-        // Add a short timeout to give the
         setTimeout(function() {
             chrome.runtime.sendMessage({type: "restylingData", data: visData});
             jQuery(".loadingOverlay").remove();
@@ -35,7 +35,6 @@ function doInject() {
     script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = chrome.extension.getURL('dist/injected.js');
-    alreadyInjected = true;
     document.addEventListener('deconDataEvent', function(event) {
         initRestylingInterface(event.detail);
     });
