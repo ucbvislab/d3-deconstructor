@@ -5,8 +5,8 @@
     "description": "This extension allows the user to deconstruct D3 visualizations on a page.",
     "version": "1.0",
     "icons": {
-        "16": "d3logo.png",
-        "128": "d3logo.png"
+        "16": "decon-icon.png",
+        "128": "decon-icon.png"
     },
 
     "content_scripts": [
@@ -22,7 +22,7 @@
     },
 
     "browser_action": {
-        "default_icon": "d3logo.png",
+        "default_icon": "decon-icon.png",
         "default_title": "D3 Deconstructor"
     },
 

@@ -3,6 +3,35 @@
     font-size: 8pt;
 }
 
+#wrapper {
+    width: 100%;
+    float:left;
+    margin-right: -180px;
+}
+
+#sidebar {
+    background-color: #F5F5F5;
+    position: relative;
+    float: right;
+    width: 180px;
+    right: 180px;
+    margin-right: -180px;
+    overflow-y: auto;
+    padding: 5px;
+    border-left: 1px solid grey;
+}
+
+#page-content-wrapper {
+    float: left;
+    width: 100%;
+}
+
+#page-content {
+    margin-right: 180px;
+    overflow-y: auto;
+}
+
+
 .mapCol {
     float: left;
     width: 50%;
@@ -180,11 +209,6 @@ ul.dropdown-menu {
     color: red;
 }
 
-#wrapper {
-    /*padding-right: 190px;*/
-    padding-right: 0;
-    transition: all 0.4s ease 0s;
-}
 
 div.mapping-group {
     overflow-y: auto;
@@ -196,30 +220,6 @@ div.mapping-group {
     background-color: #F5F5F5;
 }
 
-#sidebar-wrapper {
-    margin-right: -180px;
-    right: 180px;
-    width: 180px;
-    background-color: #F5F5F5;
-    position: fixed;
-    height: 100%;
-    overflow-y: auto;
-    z-index: 1000;
-    transition: all 0.4s ease 0s;
-    padding: 3px;
-    border-left: 1px solid grey;
-}
-
-#page-content-wrapper {
-    padding-left: 5px;
-    padding-top: 5px;
-    width: 100%;
-}
-
-.page-content {
-    margin-right: 180px;
-}
-
 .sidebar-nav {
     position: absolute;
     top: 0;
@@ -227,27 +227,4 @@ div.mapping-group {
     list-style: none;
     margin: 0;
     padding: 0;
-}
-
-@media (max-width:367px) {
-
-    #wrapper {
-        padding-left: 0;
-    }
-
-    #sidebar-wrapper {
-        left: 0;
-    }
-
-    #wrapper.active {
-        position: relative;
-        left: 300px;
-    }
-
-    #wrapper.active #sidebar-wrapper {
-        left: 300px;
-        width: 300px;
-        transition: all 0.4s ease 0s;
-    }
-
 }

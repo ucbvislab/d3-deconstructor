@@ -8,10 +8,12 @@
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="js/layout_fixer.js"></script>
     <script src="dist/app.js"></script>
 
 </head>
 <body>
+
 <span ng-controller="DataLoadingController">
 <div id="loading-screen"
      ng-if="visDataService.dataLoading.val"
@@ -20,15 +22,16 @@
 </div>
 </span>
 
-<div id="wrapper">
-    <div id="sidebar-wrapper">
-        <span ng-include src="'partials/mappingsList.html'"></span>
+
+
+
+<div id="page-content-wrapper">
+    <div id="page-content">
+        <div ng-include src="'partials/dataTable.html'"></div>
     </div>
-    <div id="page-content-wrapper">
-        <div class="page-content">
-            <div ng-include src="'partials/dataTable.html'"></div>
-        </div>
-    </div>
+</div>
+<div id="sidebar">
+    <span ng-include src="'partials/mappingsList.html'"></span>
 </div>
 </body>
 </html>
