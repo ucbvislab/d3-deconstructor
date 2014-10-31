@@ -27,6 +27,7 @@
     background-color: white;
     position:absolute;
     z-index: 5000;
+    display: table;
     top:0;
     left:0;
     overflow:hidden;
