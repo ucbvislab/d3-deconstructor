@@ -3,7 +3,7 @@
     position: absolute;
     opacity: 0.8;
     background-color: black;
-    z-index: 5000;
+    z-index: 2147483647;
 }
 
 #deconNotifier
