@@ -3,7 +3,7 @@ D3 Deconstructor
 
 First release - October 2014
 
-The D3 Deconstructor is a Google Chrome plugin for extracting data from [D3.js](http://d3js.org) visualizations.  D3 _binds data_ to DOM elements when building a visualization.  Deconstructor extracts this data and the visual mark attributes (such as position, width, height, and color) for each element in a D3 visualization.  Then, elements are grouped by the type of data they are bound to.
+The D3 Deconstructor is a Google Chrome extension for extracting data from [D3.js](http://d3js.org) visualizations.  D3 _binds data_ to DOM elements when building a visualization.  Deconstructor extracts this data and the visual mark attributes (such as position, width, height, and color) for each element in a D3 visualization.  Then, elements are grouped by the type of data they are bound to.
 
 The D3 Deconstructor was developed in the [VisLab](http://vis.berkeley.edu) at UC Berkeley.  We also used the results of deconstruction to enable restyling of D3 visualizations.  You can find the paper here: http://vis.berkeley.edu/papers/d3decon
 
@@ -24,11 +24,16 @@ In addition to data and mark attributes, Deconstructor extracts the mappings bet
 
 ###Installation
 
+The easiest way to install Deconstructor is by downloading the [bundled extension](http://ucbvislab.github.io/d3-deconstructor/d3-deconstructor.crx).
+To install the bundled extension, simply drag the file into Chrome's Extensions page.  The extensions page can be found at:
+
+    chrome://extensions
+
 **Note:** You must have Node and NPM installed to build Deconstructor.
 To build Deconstructor, first clone this repository and navigate to the cloned folder.  Then, install dependencies via NPM and run Browserify.
 
-    git clone git://github.com/harperj/decon-plugin
-    cd decon-plugin
+    git clone git://github.com/ucbvislab/d3-deconstructor
+    cd d3-deconstructor
     npm install
     grunt browserify
 
