@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			D3 Deconstructor
+		</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" href="main.css" type="text/css">
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript">
+</script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript">
+</script>
+	</head>
+	<body>
+		
+		<div class="nav-container container">
+		  <ul class="nav navbar-nav">
+		    <li><a href="#"><b>Home</b></a></li>
+		    <li><a href="#">Tutorial</a></li>
+				<li><a href="#">Download</a></li>
+		  </ul>
+		</div>
+		
+		
+		<div id="main-content" class="container">
+			<div class="page-header">
+				<h1>
+					D3 Deconstructor
+				</h1>
+			</div>
+			<div class="bodytext">
+				<p>
+					The D3 Deconstructor is a Google Chrome plugin for extracting data from <a href="http://d3js.org">D3.js</a> visualizations. D3 binds data to DOM elements when building a visualization. Deconstructor extracts this data and the visual mark attributes (such as position, width, height, and color) for each element in a D3 visualization. Then, elements are grouped by the type of data they are bound to.
+				</p>
+				<p>
+					The D3 Deconstructor was developed in the <a href="http://vis.berkeley.edu">VisLab</a> at UC Berkeley. We also used the results of deconstruction to enable restyling of D3 visualizations. You can find the paper here: <a href="http://vis.berkeley.edu/papers/d3decon">http://vis.berkeley.edu/papers/d3decon</a>.
+				</p>
+				<h3>
+					Usage
+				</h3>
+				<p>
+					To extract data from a D3 visualization the user right clicks on the visualization and selects "Deconstruct Visualization" in the context menu. Deconstructor then creates a window showing the data tables for each group of elements. Then, you can save visualization data as JSON or CSV.
+				</p>
+				
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<b>Note:</b> Deconstructor currently only works for D3 visualizations which use SVG.
+					</div>
+				</div>
+				
+				<p>
+					In addition to data and mark attributes, Deconstructor extracts the mappings between the data and marks in the visualizations. These mappings are saved when saving as JSON only. JSON output is an array of "schema" objects which have several properties:
+				</p>
+				<ul>
+					<li>
+						<b>data</b> - The data table for the visualization, represented as an object whose keys are the data column names and the value for each key is the array of data values in the column.
+					</li>
+					<li>
+						<b>attrs</b> - The mark attribute table, represented using an object similar to data.
+					</li>
+					<li>
+						<b>mappings</b> - A list of mappings found for the group of marks. Each mapping is an object with several properties:
+						<ul>
+							<li>
+								<em>type</em> - The type of mapping; we extract mappings which are linear and one-to-one correspondences between data and attributes.
+							</li>
+							<li>
+								<em>data</em> - Either a single data field name or an array of data field names for the mapping.
+							</li>
+							<li>
+								<em>attr</em> - The mapped attribute.
+							</li>
+							<li>
+								<em>params</em> - A set of parameters that describe the mapping.
+							</li>
+						</ul>
+					</li>
+					<li>
+						<b>ids</b> - A list containing a unique ID for each node, representing its order in a traversal of its SVG tree.
+					</li>
+				</ul>
+				<h3>
+					Download
+				</h3>
+				<p>
+					You can download and install the Deconstructor from our <a href="http://github.com/harperj/decon-plugin">GitHub</a>.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+* {
+	font-family: 'Open Sans' sans-serif;
+}
+
+a {
+	color: #d2691e;
+}
+
+div.page-header {
+	margin-top: 20px;
+}
+
+ul.nav li {
+	font-size: 12pt;
+}
+
+.tut-img {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+h1.main-title {
+	font-size: 45px;
+	margin-left: -10px;
+	margin-bottom: 15 px;
+}
+
+h3 {
+	font-weight: 400;
+	margin-top: 25px;
+	margin-bottom: 15px;
+}
+
+table.dataTable {
+	font-size: 9pt;
+	width: 50%;
+	float: right;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 3px !important;
+}

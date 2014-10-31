@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title>
+			D3 Deconstructor
+		</title>
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Maven+Pro:400,500,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" href="main.css" type="text/css">
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript">
+</script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript">
+</script>
+	</head>
+	<body>
+		<div class="nav-container container">
+			<a class="navbar-brand"><img src="tutorial_images/decon-icon.png" width="40px" style="margin-top:-10px; margin-right: -10px"></a>
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<a href="#"><b>Tutorial</b></a>
+				</li>
+			</ul>
+		</div>
+		<div id="main-content" class="container">
+			<div class="page-header">
+				<h1>
+					Deconstructor Tutorial
+				</h1>
+			</div>
+			<div class="bodytext">
+				<p>
+					This tutorial will explain how to use the Chrome Deconstructor extension by extracting data from a <a href="http://vallandingham.me/vis/movie/">visualization of movie data</a> created by <a href="http://vallandingham.me">Jim Vallandingham</a>.
+				</p><img src="tutorial_images/vallandingham-vis.png" class="img-responsive tut-img" width="70%">
+				<p>
+					This scatterplot shows the profit, Rotten Tomatoes rating, budget, and genre for a number of movies. Using the deconstructor, we will extract the data for all of the movies shown.
+				</p><img src="tutorial_images/contextmenu2.png" class="img-responsive tut-img" width="70%">
+				<p>
+					The Chrome Extension adds a context menu item titled <b>"Deconstruct visualization"</b>. Right click anywhere on the visualization and select this item to begin deconstruction. Deconstructor will begin the process of extracting data from the visualization. When this process is complete, a new window will appear.
+				</p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<b>Note:</b> You may also extract data from <em>all</em> visualizations on the page by clicking the deconstruct page button (<img src="tutorial_images/decon-icon.png" width="25px">) in top right corner of the browser.
+					</div>
+				</div><img src="tutorial_images/deconstruction-view.png" class="img-responsive tut-img" width="70%">
+				<p>
+					The window that appears displays the data tables extracted from the visualization on the left and the mappings extracted from a single selected data table on the right. To select a different data table, the user may click on its header text. To save a single data table as CSV, click the <b>Save CSV</b> button next to its header.
+				</p>
+				<p>
+					The form to export data at the top of the page allows the user to export <em>all</em> data as JSON or CSV. CSV export only includes data tables, while the JSON output also includes mappings.
+				</p><br>
+				<p>
+					Now that you've seen how the Deconstructor works, download it or check out the <a href="http://github.com/harperj/decon-plugin">GitHub repository</a>.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
