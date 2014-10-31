@@ -1,9 +1,33 @@
 .loadingOverlay
 {
     position: absolute;
+    display: table;
     opacity: 0.8;
     background-color: black;
     z-index: 2147483647;
+}
+
+.overlayText
+{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 30pt;
+    color: white;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.loadingOverlayFullPage
+{
+    left: 0;
+    top: 0;
+    position: fixed;
+    z-index: 2147483647;
+    width: 100%;
+    height: 100%;
+    display: table;
+    opacity: 0.8;
+    background-color: black;
 }
 
 #deconNotifier
@@ -13,22 +37,4 @@
     left: 20px;
     top: 20px;
     background-color: #DDD;
-}
-
-.deconText
-{
-    position: relative;
-    left: 50%;
-    top: 50%;
-    margin-top: -47px;
-    margin-left: -153px;
-    font-size: 30pt;
-    color: white;
-    font-family: 'Helvetica Neue', sans-serif;
-    -webkit-animation: fadein 2s;
-}
-
-.fixedDeconText
-{
-    position: fixed;
 }

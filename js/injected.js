@@ -8,7 +8,7 @@ document.addEventListener("contextmenu", function(event) {
 
 document.addEventListener("pageDeconEvent", function () {
     console.log("about to deconstruct");
-    buildOverlay($("body")[0], true);
+    buildOverlay($("html")[0], true);
     setTimeout(pageDeconstruct, 10);
 });
 
@@ -29,23 +29,25 @@ document.addEventListener("nodeDeconEvent", function () {
 });
 
 function buildOverlay(domElem, fullPage) {
-    var elemOffset = $(domElem).offset();
-    var overlay = $('<div class="loadingOverlay"></div>');
-    $(overlay).css("top", elemOffset.top);
-    $(overlay).css("left", elemOffset.left);
-
-    var rect = domElem.getBoundingClientRect();
-    $(overlay).css("width", rect.width);
-    $(overlay).css("height", rect.height);
-
-    var text = $('<span class="deconText">Deconstructing...</span>');
+    var overlay;
     if (fullPage) {
-        $(text).addClass("fixedDeconText");
+        overlay = $('<div class="loadingOverlayFullPage"></div>');
+        $(overlay).append(text);
+    }
+    else {
+        var elemOffset = $(domElem).offset();
+        overlay = $('<div class="loadingOverlay"></div>');
+        $(overlay).css("top", elemOffset.top);
+        $(overlay).css("left", elemOffset.left);
+
+        var rect = domElem.getBoundingClientRect();
+        $(overlay).css("width", rect.width);
+        $(overlay).css("height", rect.height);
     }
 
+    var text = $('<div class="overlayText">Deconstructing...</div>');
     $(overlay).append(text);
-
-    $("body").append(overlay);
+    $("html").append(overlay);
 }
 
 /**

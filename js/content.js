@@ -25,7 +25,7 @@ function initRestylingInterface(visData) {
 
         setTimeout(function() {
             chrome.runtime.sendMessage({type: "restylingData", data: visData});
-            jQuery(".loadingOverlay").remove();
+            jQuery(".loadingOverlay, .loadingOverlayFullPage").remove();
         }, 500);
     });
 }
