@@ -24,7 +24,8 @@ In addition to data and mark attributes, Deconstructor extracts the mappings bet
 
 ###Installation
 
-To install, clone this git repository.  Then, navigate to the cloned folder, install dependencies via NPM, and run browserify:
+**Note:** You must have Node and NPM installed to build Deconstructor.
+To build Deconstructor, first clone this repository and navigate to the cloned folder.  Then, install dependencies via NPM and run Browserify.
 
     git clone git://github.com/harperj/decon-plugin
     cd decon-plugin
