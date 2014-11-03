@@ -27,7 +27,7 @@ In addition to data and mark attributes, Deconstructor extracts the mappings bet
 #####Bundle
 
 The easiest way to install Deconstructor is by downloading the [bundled extension](http://ucbvislab.github.io/d3-deconstructor/d3-deconstructor.crx).
-To install the bundled extension, simply drag the file into [Chrome's Extensions page](chrome://extensions).
+To install the bundled extension, simply drag the file into Chrome's Extensions page (chrome://extensions).
 
 
 #####Build
