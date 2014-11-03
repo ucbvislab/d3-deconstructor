@@ -22,18 +22,21 @@ In addition to data and mark attributes, Deconstructor extracts the mappings bet
   * *params* - A set of parameters that describe the mapping.
 * **ids** - A list containing a unique ID for each node, representing its order in a traversal of its SVG tree. 
 
-###Installation
+###Install
+
+#####Bundle
 
 The easiest way to install Deconstructor is by downloading the [bundled extension](http://ucbvislab.github.io/d3-deconstructor/d3-deconstructor.crx).
-To install the bundled extension, simply drag the file into Chrome's Extensions page.  The extensions page can be found at:
+To install the bundled extension, simply drag the file into Chrome's Extensions page, found at:
 
     chrome://extensions
 
 
+#####Build
 
 **Note:** You must have [Node](http://nodejs.org/) installed to build Deconstructor.
 
-To build Deconstructor, first clone this repository and navigate to the cloned folder.  Then, install dependencies via NPM and run Browserify.
+To build Deconstructor, first clone this repository and navigate to the cloned folder.  Then, install dependencies via NPM and run [Browserify](http://browserify.org/).
 
     git clone git://github.com/ucbvislab/d3-deconstructor
     cd d3-deconstructor
