@@ -29,7 +29,9 @@ To install the bundled extension, simply drag the file into Chrome's Extensions 
 
     chrome://extensions
 
-**Note:** You must have Node and NPM installed to build Deconstructor.
+
+
+**Note:** You must have [Node](http://nodejs.org/) installed to build Deconstructor.
 
 To build Deconstructor, first clone this repository and navigate to the cloned folder.  Then, install dependencies via NPM and run Browserify.
 
