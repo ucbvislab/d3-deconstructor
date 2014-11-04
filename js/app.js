@@ -1,5 +1,3 @@
-var angular = require('angular');
-
 var deconApp = angular.module('deconApp', []);
 
 require('./DataTableController');

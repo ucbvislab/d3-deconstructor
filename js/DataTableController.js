@@ -1,4 +1,3 @@
-var angular = require('angular');
 var _ = require('underscore');
 var VisDeconstruct = require('d3deconstructor');
 var saveAs = require('FileSaver.js');

@@ -1,4 +1,3 @@
-var angular = require('angular');
 var deconApp = angular.module('deconApp');
 
 deconApp.controller('MappingsListController', ['$scope', 'VisDataService',

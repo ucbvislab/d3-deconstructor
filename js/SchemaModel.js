@@ -1,4 +1,3 @@
-var angular = require('angular');
 var _ = require('underscore');
 var deconApp = angular.module('deconApp');
 
