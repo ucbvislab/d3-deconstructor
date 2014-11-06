@@ -39,6 +39,6 @@ To build Deconstructor, first clone this repository and navigate to the cloned f
     git clone git://github.com/ucbvislab/d3-deconstructor
     cd d3-deconstructor
     npm install
-    grunt browserify
+    node_modules/grunt-cli/bin/grunt browserify
 
 Finally, navigate to [chrome://extensions](chrome://extensions), click "Load unpacked extension..." and select the cloned folder.
