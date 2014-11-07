@@ -35,6 +35,8 @@
 
 #page-content-wrapper {
     float: left;
+    margin-left: 5px;
+    margin-top: 5px;
     width: 100%;
 }
 
