@@ -59,8 +59,8 @@ function visDeconstruct(svgNode) {
     var deconstructed = VisDeconstruct.deconstruct(svgNode);
 
     var deconData = [{
-        schematized: deconstructed.schematizedData,
-        ids: deconstructed.dataNodes.ids
+        schematized: deconstructed[0].schematizedData,
+        ids: deconstructed[0].dataNodes.ids
     }];
 
     var evt = document.createEvent("CustomEvent");
@@ -68,7 +68,7 @@ function visDeconstruct(svgNode) {
     document.dispatchEvent(evt);
 
     window.deconstruction = {
-        deconstruction: deconData,
+        deconstruction: [deconstructed],
         updaterRecovered: false
     };
 }
@@ -98,7 +98,7 @@ function pageDeconstruct() {
     document.dispatchEvent(evt);
 
     window.deconstruction = {
-        deconstruction: deconData,
+        deconstruction: deconstructed,
         updaterRecovered: false
     };
 }
