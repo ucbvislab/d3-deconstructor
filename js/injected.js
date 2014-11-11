@@ -66,6 +66,11 @@ function visDeconstruct(svgNode) {
     var evt = document.createEvent("CustomEvent");
     evt.initCustomEvent("deconDataEvent", true, true, deconData);
     document.dispatchEvent(evt);
+
+    window.deconstruction = {
+        deconstruction: deconData,
+        updaterRecovered: false
+    };
 }
 
 
@@ -91,4 +96,9 @@ function pageDeconstruct() {
     var evt = document.createEvent("CustomEvent");
     evt.initCustomEvent("deconDataEvent", true, true, deconData);
     document.dispatchEvent(evt);
+
+    window.deconstruction = {
+        deconstruction: deconData,
+        updaterRecovered: false
+    };
 }
