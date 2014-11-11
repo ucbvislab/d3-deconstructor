@@ -72,7 +72,23 @@ function visDeconstruct(svgNode) {
 function pageDeconstruct() {
     var deconstructed = VisDeconstruct.pageDeconstruct();
 
+    var deconData = [];
+    var nodes = [];
+    var ids = [];
+
+    $.each(deconstructed, function(i, decon) {
+        nodes = nodes.concat(decon.dataNodes.nodes);
+        ids = ids.concat(decon.dataNodes.ids);
+        //updaters.push(new VisUpdater(svgNode, decon.dataNodes.nodes, decon.dataNodes.ids,
+        //    decon.schematizedData));
+        var deconDataItem = {
+            schematized: decon.schematizedData,
+            ids: decon.dataNodes.ids
+        };
+        deconData.push(deconDataItem);
+    });
+
     var evt = document.createEvent("CustomEvent");
-    evt.initCustomEvent("deconDataEvent", true, true, deconstructed);
+    evt.initCustomEvent("deconDataEvent", true, true, deconData);
     document.dispatchEvent(evt);
 }
