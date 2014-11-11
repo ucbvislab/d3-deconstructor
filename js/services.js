@@ -19,7 +19,7 @@ deconApp.service('VisDataService', ['Schema', '$rootScope', '$timeout',  functio
             vis: selectedVis
         };
         sendMessage(message);
-        visData[selectedSchema].updateWithMessage(message);
+        visData[selectedSchema.val].updateWithMessage(message);
     }
 
     function selectSchema(schema) {
