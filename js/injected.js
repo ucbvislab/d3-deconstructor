@@ -1,4 +1,4 @@
-var VisDeconstruct = require('d3deconstructor');
+var VisDeconstruct = require('d3-decon-lib');
 var $ = require('jquery');
 
 var contextElem;
