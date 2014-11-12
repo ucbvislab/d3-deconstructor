@@ -3,10 +3,11 @@
 }
 
 h2.img-label {
-	font-size: 16pt;
+	font-size: 14pt;
 	text-align: center;
 	margin-top: -10px;
 	margin-bottom: 30px;
+	padding-right: 5%;
 	font-weight: bold;
 }
 
@@ -20,15 +21,8 @@ h2.img-label {
 	float: right;
 }
 
-.banner-left img {
-	float:left;
-	width: 49%;
-}
-
-.banner-right img {
-	float: right;
-	margin-right: 1%;
-	width: 49%;
+.banner-img {
+	width: 90%;
 }
 
 a {
