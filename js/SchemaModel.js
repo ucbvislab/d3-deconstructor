@@ -29,7 +29,8 @@ Schema.prototype.updateWithMessage = function(updateMessage) {
     var val = updateMessage.val;
     var attr = updateMessage.attr;
     var schema = this;
-    _.each(updateMessage.ids, function(id, ind) {
+    _.each(updateMessage.ids, function(id) {
+        var ind = _.find(schema.ids[id]);
         schema.attrs[attr][ind] = val;
 
         if (attr === "area") {
