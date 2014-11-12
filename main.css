@@ -3,12 +3,16 @@
 }
 
 h2.img-label {
-	font-size: 14pt;
+	font-size: 12pt;
 	text-align: center;
 	margin-top: -10px;
 	margin-bottom: 30px;
 	padding-right: 5%;
 	font-weight: bold;
+}
+
+h2.img-label a {
+	font-size: 10pt;
 }
 
 .left-text {
