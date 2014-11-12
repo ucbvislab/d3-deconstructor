@@ -2,10 +2,33 @@
 	font-family: 'Open Sans' sans-serif;
 }
 
-.banner-image img {
-    width: 90%;
-    display: inherit;
-    margin: 20px;
+h2.img-label {
+	font-size: 16pt;
+	text-align: center;
+	margin-top: -10px;
+	margin-bottom: 30px;
+	font-weight: bold;
+}
+
+.left-text {
+	width: 50%;
+	float: left;
+}
+
+.right-text {
+	width: 50%;
+	float: right;
+}
+
+.banner-left img {
+	float:left;
+	width: 49%;
+}
+
+.banner-right img {
+	float: right;
+	margin-right: 1%;
+	width: 49%;
 }
 
 a {
