@@ -59,8 +59,8 @@ function visDeconstruct(svgNode) {
     var deconstructed = VisDeconstruct.deconstruct(svgNode);
 
     var deconData = [{
-        schematized: deconstructed[0].schematizedData,
-        ids: deconstructed[0].dataNodes.ids
+        schematized: deconstructed.schematizedData,
+        ids: deconstructed.dataNodes.ids
     }];
 
     var evt = document.createEvent("CustomEvent");
