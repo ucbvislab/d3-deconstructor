@@ -1,5 +1,6 @@
 var VisDeconstruct = require('d3-decon-lib');
 var $ = require('jquery');
+var CircularJSON = require('circular-json');
 
 var contextElem;
 document.addEventListener("contextmenu", function(event) {
@@ -92,6 +93,8 @@ function pageDeconstruct() {
         };
         deconData.push(deconDataItem);
     });
+
+    deconData = JSON.parse(CircularJSON.stringify(deconData));
 
     var evt = document.createEvent("CustomEvent");
     evt.initCustomEvent("deconDataEvent", true, true, deconData);
