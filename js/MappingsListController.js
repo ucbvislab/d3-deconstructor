@@ -4,7 +4,7 @@ deconApp.controller('MappingsListController', ['$scope', 'VisDataService',
     function($scope, visDataService) {
         $scope.data = visDataService.visData;
         $scope.ids = visDataService.ids;
-        $scope.selectedSchema = visDataService.selectedSchema;
+        $scope.selectedMarkGroup = visDataService.selectedMarkGroup;
 
         $scope.isLinear = function (mapping) {
             return mapping.type === "linear";

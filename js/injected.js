@@ -1,4 +1,4 @@
-var VisDeconstruct = require('d3-decon-lib');
+var VisDeconstruct = require('d3-decon-lib').Deconstruct;
 var $ = require('jquery');
 var CircularJSON = require('circular-json');
 

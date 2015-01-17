@@ -1,6 +1,6 @@
 <div class="mapping-group" ng-controller="MappingsListController">
     <span class="sectionHeader">Mappings:</span>
-    <div class="panel-group" id="mappings" ng-repeat="mapping in data[selectedSchema.val].mappings">
+    <div class="panel-group" id="mappings" ng-repeat="mapping in data[selectedMarkGroup.val].mappings">
         <div class="panel panel-default">
             <div ng-if="!isLinear(mapping)" class="nominal panel-heading">
                 <a data-toggle="collapse" style="color:black;" data-parent="#mappings" href="#mapping{{$index}}">

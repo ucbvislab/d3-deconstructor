@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var VisDeconstruct = require('d3-decon-lib');
+var Deconstruct = require('d3-decon-lib').Deconstruct;
 var saveAs = require('FileSaver.js');
 
 var deconApp = angular.module('deconApp');
@@ -8,7 +8,7 @@ deconApp.controller('DataTableController', ['$scope', 'orderByFilter', 'VisDataS
     function($scope, orderByFilter, visDataService) {
 
         $scope.selectedVis = visDataService.selectedVis;
-        $scope.selectSchema = visDataService.selectSchema;
+        $scope.selectMarkGroup = visDataService.selectMarkGroup;
 
         $scope.visSelectorVal = 0;
         $scope.visDataService = visDataService;
@@ -28,45 +28,45 @@ deconApp.controller('DataTableController', ['$scope', 'orderByFilter', 'VisDataS
 
         $scope.saveFilename = "";
 
-        $scope.getSchemaSize = function(schema) {
-            var dataField = _.keys(schema.data)[0];
-            return schema.data[dataField].length;
+        $scope.getGroupSize = function(group) {
+            var dataField = _.keys(group.data)[0];
+            return group.data[dataField].length;
         };
 
-        $scope.hasMarks = function(schema) {
-            return schema.attrs !== null;
+        $scope.hasMarks = function(group) {
+            return group.attrs !== null;
         };
 
         $scope.saveData = function() {
             saveAs(new Blob([JSON.stringify(visDataService.visData)]), $scope.saveFilename);
         };
 
-        $scope.saveSchemaDataCSV = function(schema, ind) {
-            var blob = new Blob([schema.getDataCSVBlob()], { type: "text/csv;charset=utf-8" });
-            saveAs(blob, "schema-"+ind.toString()+".csv");
+        $scope.saveGroupDataCSV = function(group, ind) {
+            var blob = new Blob([group.getDataCSVBlob()], { type: "text/csv;charset=utf-8" });
+            saveAs(blob, "group-"+ind.toString()+".csv");
         };
 
         $scope.saveVisDataCSV = function() {
             var orderedVisData = orderByFilter(visDataService.visData, 'numFields', true);
             for (var i = 0; i < orderedVisData.length; ++i) {
-                $scope.saveSchemaDataCSV(orderedVisData[i], i+1);
+                $scope.saveGroupDataCSV(orderedVisData[i], i+1);
             }
         };
 
-        $scope.findSchemaById = function(id) {
-            var schemaInd;
-            _.each($scope.data, function(schema, ind) {
-                if (schema.ids.indexOf(id) > -1) {
-                    schemaInd = ind;
+        $scope.findGroupById = function(id) {
+            var groupInd;
+            _.each($scope.data, function(group, ind) {
+                if (group.ids.indexOf(id) > -1) {
+                    groupInd = ind;
                 }
             });
-            return schemaInd;
+            return groupInd;
         };
 
-        $scope.selectRow = function(schema, ind) {
-            var rowSchemaInd = visDataService.visData.indexOf(schema);
-            if (rowSchemaInd !== visDataService.getSelected()) {
-                visDataService.selectSchema($scope.data[rowSchemaInd]);
+        $scope.selectRow = function(group, ind) {
+            var rowGroupInd = visDataService.visData.indexOf(group);
+            if (rowGroupInd !== visDataService.getSelected()) {
+                visDataService.selectMarkGroup($scope.data[rowGroupInd]);
             }
 
             if ($scope.selectedRows.indexOf(ind) !== -1) {
@@ -77,8 +77,8 @@ deconApp.controller('DataTableController', ['$scope', 'orderByFilter', 'VisDataS
             }
         };
 
-        $scope.rowIsSelected = function(schema, ind) {
-            if (schema === visDataService.getSelected()) {
+        $scope.rowIsSelected = function(group, ind) {
+            if (group === visDataService.getSelected()) {
                 return $scope.selectedRows.indexOf(ind) !== -1;
             }
             else {
@@ -86,12 +86,12 @@ deconApp.controller('DataTableController', ['$scope', 'orderByFilter', 'VisDataS
             }
         };
 
-        $scope.splitSchema = function() {
+        $scope.splitGroup = function() {
             if ($scope.selectedRows.length > 0) {
-                var schema = visDataService.getSelected();
+                var group = visDataService.getSelected();
                 $scope.selectedRows = $scope.selectedRows.sort(function(a, b){return b-a});
 
-                var newSchema = {
+                var newGroup = {
                     ids: [],
                     data: {},
                     attrs: {},
@@ -100,37 +100,37 @@ deconApp.controller('DataTableController', ['$scope', 'orderByFilter', 'VisDataS
                 };
 
                 _.each($scope.selectedRows, function(ind, count) {
-                    newSchema.ids.push(schema.ids[ind]);
-                    schema.ids.splice(ind, 1);
-                    newSchema.nodeAttrs.push(schema.nodeAttrs[ind]);
-                    schema.nodeAttrs.splice(ind, 1);
+                    newGroup.ids.push(group.ids[ind]);
+                    group.ids.splice(ind, 1);
+                    newGroup.nodeAttrs.push(group.nodeAttrs[ind]);
+                    group.nodeAttrs.splice(ind, 1);
 
-                    _.each(schema.data, function(val, key) {
-                        if (newSchema.data[key]) {
-                            newSchema.data[key].push(val[ind]);
+                    _.each(group.data, function(val, key) {
+                        if (newGroup.data[key]) {
+                            newGroup.data[key].push(val[ind]);
                         }
                         else {
-                            newSchema.data[key] = [val[ind]]
+                            newGroup.data[key] = [val[ind]]
                         }
-                        schema.data[key].splice(ind, 1);
+                        group.data[key].splice(ind, 1);
                     });
-                    _.each(schema.attrs, function(val, key) {
-                        if (newSchema.attrs[key]) {
-                            newSchema.attrs[key].push(val[ind]);
+                    _.each(group.attrs, function(val, key) {
+                        if (newGroup.attrs[key]) {
+                            newGroup.attrs[key].push(val[ind]);
                         }
                         else {
-                            newSchema.attrs[key] = [val[ind]]
+                            newGroup.attrs[key] = [val[ind]]
                         }
-                        schema.attrs[key].splice(ind, 1);
+                        group.attrs[key].splice(ind, 1);
                     });
                 });
-                newSchema.schema = _.keys(newSchema.data);
-                newSchema.numNodes = newSchema.ids.length;
-                schema.numNodes = schema.ids.length;
+                newGroup.group = _.keys(newGroup.data);
+                newGroup.numNodes = newGroup.ids.length;
+                group.numNodes = group.ids.length;
 
-                schema.mappings = VisDeconstruct.extractMappings(schema);
-                newSchema.mappings = VisDeconstruct.extractMappings(newSchema);
-                $scope.data.push(newSchema);
+                group.mappings = Deconstruct.extractMappings(group);
+                newGroup.mappings = Deconstruct.extractMappings(newGroup);
+                $scope.data.push(newGroup);
                 $scope.selectedRows = [];
             }
         };

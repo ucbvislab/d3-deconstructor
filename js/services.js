@@ -1,13 +1,13 @@
 var _ = require('underscore');
 var deconApp = angular.module('deconApp');
 
-deconApp.service('VisDataService', ['Schema', '$rootScope', '$timeout',  function(Schema, $rootScope, timer) {
+deconApp.service('VisDataService', ['MarkGroup', '$rootScope', '$timeout',  function(MarkGroup, $rootScope, timer) {
     var port;
     var pageData = [];
     var visData = [];
     var ids = [];
     var selectedVis = {val: 0};
-    var selectedSchema = {val: 0};
+    var selectedMarkGroup = {val: 0};
     var dataLoading = {val: false};
 
     function updateNodes(attr, val, ids) {
@@ -19,27 +19,27 @@ deconApp.service('VisDataService', ['Schema', '$rootScope', '$timeout',  functio
             vis: selectedVis
         };
         sendMessage(message);
-        visData[selectedSchema.val].updateWithMessage(message);
+        visData[selectedMarkGroup.val].updateWithMessage(message);
     }
 
-    function selectSchema(schema) {
-        selectedSchema.val = visData.indexOf(schema);
+    function selectMarkGroup(markGroup) {
+        selectedMarkGroup.val = visData.indexOf(markGroup);
     }
 
     function getSelected() {
-        return visData[selectedSchema.val];
+        return visData[selectedMarkGroup.val];
     }
 
-    function updateDataWithLinearMapping(mapping, schemaInd) {
+    function updateDataWithLinearMapping(mapping, groupInd) {
         // update the attribute values according to the new mapping
-        var attrArray = visData[schemaInd].attrs[mapping.attr];
-        var schema = visData[schemaInd];
+        var attrArray = visData[groupInd].attrs[mapping.attr];
+        var group = visData[groupInd];
         _.each(attrArray, function(attrVal, ind) {
             var newAttrVal = 0;
             _.each(mapping.params.coeffs, function(coeff, coeffInd) {
                 if (coeffInd < mapping.data.length) {
-                    newAttrVal += coeff * schema.data[mapping.data[coeffInd]][ind];
-                    console.log(coeff * schema.data[mapping.data[coeffInd]][ind] + "+");
+                    newAttrVal += coeff * group.data[mapping.data[coeffInd]][ind];
+                    console.log(coeff * group.data[mapping.data[coeffInd]][ind] + "+");
                 }
                 else {
                     console.log(coeff);
@@ -47,7 +47,7 @@ deconApp.service('VisDataService', ['Schema', '$rootScope', '$timeout',  functio
                 }
             });
 
-            updateNodes(mapping.attr, newAttrVal, [visData[schemaInd].ids[ind]]);
+            updateNodes(mapping.attr, newAttrVal, [visData[groupInd].ids[ind]]);
         });
     }
 
@@ -85,7 +85,7 @@ deconApp.service('VisDataService', ['Schema', '$rootScope', '$timeout',  functio
     }
 
     function getVisData() {
-        return pageData[selectedSchema.val];
+        return pageData[selectedMarkGroup.val];
     }
 
     function selectVis(visID) {
@@ -96,8 +96,8 @@ deconApp.service('VisDataService', ['Schema', '$rootScope', '$timeout',  functio
             visData.pop();
         }
 
-        _.each(pageData[visID].schematized, function(schema) {
-            visData.push(Schema.fromDeconData(schema));
+        _.each(pageData[visID].schematized, function(group) {
+            visData.push(MarkGroup.fromJSON(group));
         });
     }
 
@@ -110,9 +110,9 @@ deconApp.service('VisDataService', ['Schema', '$rootScope', '$timeout',  functio
         sendMessage: sendMessage,
         updateDataWithLinearMapping: updateDataWithLinearMapping,
         updateNodes: updateNodes,
-        selectSchema: selectSchema,
+        selectMarkGroup: selectMarkGroup,
         getSelected: getSelected,
-        selectedSchema: selectedSchema,
+        selectedMarkGroup: selectedMarkGroup,
         pageData: pageData,
         selectedVis: selectedVis,
         visData: visData,

@@ -17,13 +17,13 @@ deconApp.directive('ngRightClick', function($parse) {
 deconApp.directive('svgInject', function($compile) {
     return {
         scope: {
-            schema: "=schema",
+            group: "=group",
             ind: "=ind"
         },
         restrict: 'E',
         link: function(scope, element, attrs, controller) {
-            scope.$watchGroup(["schema.numNodes", "attrs"], function(newValue, oldValue) {
-//                    console.log(scope.schema);
+            scope.$watchGroup(["group.numNodes", "attrs"], function(newValue, oldValue) {
+//                    console.log(scope.group);
 //                    console.log(scope.ind);
                 var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                 var canvasWidth = 20;
@@ -36,17 +36,17 @@ deconApp.directive('svgInject', function($compile) {
                     $(node).remove();
                 }, true);
 
-                var maxWidth = _.max(scope.schema.attrs["width"]);
-                var maxHeight= _.max(scope.schema.attrs["height"]);
+                var maxWidth = _.max(scope.group.attrs["width"]);
+                var maxHeight= _.max(scope.group.attrs["height"]);
                 var scaleDimVal = maxHeight;
                 if (maxWidth > maxHeight) {
                     scaleDimVal = maxWidth;
                 }
                 scaleDimVal = canvasWidth / scaleDimVal;
 
-                var markNode = document.createElementNS("http://www.w3.org/2000/svg", scope.schema.attrs["shape"][scope.ind]);
+                var markNode = document.createElementNS("http://www.w3.org/2000/svg", scope.group.attrs["shape"][scope.ind]);
 
-                var nodeAttrs = scope.schema.nodeAttrs[scope.ind];
+                var nodeAttrs = scope.group.nodeAttrs[scope.ind];
                 for (var nodeAttr in nodeAttrs) {
                     if (nodeAttrs.hasOwnProperty(nodeAttr) && nodeAttrs[nodeAttr] !== null) {
                         if (nodeAttr === "text") {
@@ -60,7 +60,7 @@ deconApp.directive('svgInject', function($compile) {
 
                 // Setup non-geometric attributes
                 var geomAttrs = ["width", "height", "area", "shape", "xPosition", "yPosition"];
-                for (var attr in scope.schema.attrs) {
+                for (var attr in scope.group.attrs) {
                     var isGeom = false;
                     _.each(geomAttrs, function(geomAttr) {
                         if (attr === geomAttr) {
@@ -68,8 +68,8 @@ deconApp.directive('svgInject', function($compile) {
                             return -1;
                         }
                     });
-                    if (!isGeom && scope.schema.attrs[attr][scope.ind] !== 'none') {
-                        d3.select(markNode).style(attr, scope.schema.attrs[attr][scope.ind]);
+                    if (!isGeom && scope.group.attrs[attr][scope.ind] !== 'none') {
+                        d3.select(markNode).style(attr, scope.group.attrs[attr][scope.ind]);
                     }
                 }
 
