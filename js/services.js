@@ -10,7 +10,7 @@ deconApp.service('VisDataService', ['MarkGroup', '$rootScope', '$timeout',  func
     var selectedMarkGroup = {val: 0};
     var dataLoading = {val: false};
 
-    function updateNodes(attr, val, ids) {
+    var updateNodes = function(attr, val, ids) {
         var message = {
             type: "update",
             attr: attr,
@@ -20,15 +20,15 @@ deconApp.service('VisDataService', ['MarkGroup', '$rootScope', '$timeout',  func
         };
         sendMessage(message);
         visData[selectedMarkGroup.val].updateWithMessage(message);
-    }
+    };
 
-    function selectMarkGroup(markGroup) {
+    var selectMarkGroup = function(markGroup) {
         selectedMarkGroup.val = visData.indexOf(markGroup);
-    }
+    };
 
-    function getSelected() {
+    var getSelected = function() {
         return visData[selectedMarkGroup.val];
-    }
+    };
 
     function updateDataWithLinearMapping(mapping, groupInd) {
         // update the attribute values according to the new mapping

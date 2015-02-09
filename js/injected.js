@@ -1,5 +1,6 @@
 var VisDeconstruct = require('d3-decon-lib').Deconstruct;
 var $ = require('jquery');
+var _ = require('underscore');
 var CircularJSON = require('circular-json');
 
 var contextElem;
@@ -60,8 +61,8 @@ function visDeconstruct(svgNode) {
     var deconstructed = VisDeconstruct.deconstruct(svgNode);
 
     var deconData = [{
-        schematized: deconstructed.schematizedData,
-        ids: deconstructed.dataNodes.ids
+        schematized: deconstructed.groups,
+        ids: _.map(deconstructed.marks, function(mark) { return mark.deconID; })
     }];
 
     var evt = document.createEvent("CustomEvent");
@@ -77,19 +78,16 @@ function visDeconstruct(svgNode) {
 
 function pageDeconstruct() {
     var deconstructed = VisDeconstruct.pageDeconstruct();
-
     var deconData = [];
-    var nodes = [];
-    var ids = [];
 
     $.each(deconstructed, function(i, decon) {
-        nodes = nodes.concat(decon.dataNodes.nodes);
-        ids = ids.concat(decon.dataNodes.ids);
+        //nodes = nodes.concat(decon.dataNodes.nodes);
+        //ids = ids.concat(decon.dataNodes.ids);
         //updaters.push(new VisUpdater(svgNode, decon.dataNodes.nodes, decon.dataNodes.ids,
         //    decon.schematizedData));
         var deconDataItem = {
-            schematized: decon.schematizedData,
-            ids: decon.dataNodes.ids
+            schematized: decon.groups,
+            ids: _.map(decon.marks, function(mark) { return mark.deconID; })
         };
         deconData.push(deconDataItem);
     });
