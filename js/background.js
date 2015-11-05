@@ -8,7 +8,7 @@
     });
 
     chrome.browserAction.onClicked.addListener(function (tab) {
-        chrome.tabs.sendRequest(tab.id, {type: "pageActionClicked"});
+        chrome.tabs.sendMessage(tab.id, {type: "pageActionClicked"});
         console.log(tab.id);
     });
 
@@ -19,7 +19,7 @@
     });
 
     function deconstruct(info, tab) {
-        chrome.tabs.sendRequest(tab.id, {type: "deconstructVis"});
+        chrome.tabs.sendMessage(tab.id, {type: "deconstructVis"});
         console.log("sending deconstruct request");
     }
 

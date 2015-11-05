@@ -1,15 +1,16 @@
 doInject();
 
 if (window === top) {
-    chrome.extension.onRequest.addListener(function(req, sender, sendResponse) {
+    chrome.runtime.onMessage.addListener(function(req, sender, sendResponse) {
+        console.log(req);
         if (req.type == "pageActionClicked") {
-            var evt = document.createEvent("CustomEvent");
-            evt.initCustomEvent("pageDeconEvent", true, true);
+            var evt = new CustomEvent("pageDeconEvent", {type: "pageDeconEvent"});
+            // evt.initCustomEvent("pageDeconEvent", true, true);
             document.dispatchEvent(evt);
         }
         else if (req.type == "deconstructVis") {
             var evt = document.createEvent("CustomEvent");
-            evt.initCustomEvent("nodeDeconEvent", true, true);
+            var evt = new CustomEvent("nodeDeconEvent", {type: "nodeDeconEvent"});
             console.log("sending node decon event");
             document.dispatchEvent(evt);
         }
