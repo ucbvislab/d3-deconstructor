@@ -61,7 +61,10 @@ function visDeconstruct(svgNode) {
     var deconstructed = VisDeconstruct.deconstruct(svgNode);
 
     var deconData = [{
-        schematized: deconstructed.groups,
+        svg: deconstructed.svg,
+        axes: deconstructed.axes,
+        groups: deconstructed.groups,
+        mappingSets: deconstructed.mappingSets,
         ids: _.map(deconstructed.marks, function(mark) { return mark.deconID; })
     }];
 
@@ -86,7 +89,10 @@ function pageDeconstruct() {
         //updaters.push(new VisUpdater(svgNode, decon.dataNodes.nodes, decon.dataNodes.ids,
         //    decon.schematizedData));
         var deconDataItem = {
-            schematized: decon.groups,
+            svg: decon.svg,
+            axes: decon.axes,
+            groups: decon.groups,
+            mappingSets: decon.mappingSets,
             ids: _.map(decon.marks, function(mark) { return mark.deconID; })
         };
         deconData.push(deconDataItem);

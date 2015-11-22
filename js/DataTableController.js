@@ -38,7 +38,7 @@ deconApp.controller('DataTableController', ['$scope', 'orderByFilter', 'VisDataS
         };
 
         $scope.saveData = function() {
-            saveAs(new Blob([JSON.stringify(visDataService.visData)]), $scope.saveFilename);
+            saveAs(new Blob([JSON.stringify(visDataService.pageData[visDataService.selectedVis.val])]), $scope.saveFilename);
         };
 
         $scope.saveGroupDataCSV = function(group, ind) {

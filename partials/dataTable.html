@@ -27,7 +27,7 @@
 
     <div class="dataContainer" ng-repeat="group in visDataService.visData | orderBy:'numFields':true">
         <span>
-            <span ng-click="selectMarkGroup(group)" class="sectionHeader">Data Table {{$index+1}}</span>
+            <span ng-click="selectMarkGroup(group)" class="sectionHeader">Data Table {{$index+1}} <span ng-if="group.name">({{group.name}})</span></span>
             <button ng-click="saveGroupDataCSV(group, $index+1)">Save CSV</button>
         </span>
         <table class="table dataTable" ng-right-click="splitGroup()">
