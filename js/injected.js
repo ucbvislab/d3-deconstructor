@@ -63,7 +63,8 @@ function visDeconstruct(svgNode) {
     var deconData = [{
         svg: deconstructed.svg,
         axes: deconstructed.axes,
-        schematized: deconstructed.groups,
+        groups: deconstructed.groups,
+        mappingSets: deconstructed.mappingSets,
         ids: _.map(deconstructed.marks, function(mark) { return mark.deconID; })
     }];
 
@@ -90,7 +91,8 @@ function pageDeconstruct() {
         var deconDataItem = {
             svg: decon.svg,
             axes: decon.axes,
-            schematized: decon.groups,
+            groups: decon.groups,
+            mappingSets: decon.mappingSets,
             ids: _.map(decon.marks, function(mark) { return mark.deconID; })
         };
         deconData.push(deconDataItem);

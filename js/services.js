@@ -96,7 +96,7 @@ deconApp.service('VisDataService', ['MarkGroup', '$rootScope', '$timeout',  func
             visData.pop();
         }
 
-        _.each(pageData[visID].schematized, function(group) {
+        _.each(pageData[visID].groups, function(group) {
             visData.push(MarkGroup.fromJSON(group));
         });
     }
