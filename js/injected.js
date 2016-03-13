@@ -1,3 +1,4 @@
+var pathSeg = require('../lib/pathSeg.js');
 var VisDeconstruct = require('d3-decon-lib').Deconstruct;
 var $ = require('jquery');
 var _ = require('underscore');
