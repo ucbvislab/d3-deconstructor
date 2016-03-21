@@ -1,5 +1,6 @@
 var _ = require('underscore');
 var deconApp = angular.module('deconApp');
+var CircularJSON = require('circular-json');
 
 deconApp.service('VisDataService', ['MarkGroup', '$rootScope', '$timeout',  function(MarkGroup, $rootScope, timer) {
     var port;
@@ -36,15 +37,9 @@ deconApp.service('VisDataService', ['MarkGroup', '$rootScope', '$timeout',  func
         var group = visData[groupInd];
         _.each(attrArray, function(attrVal, ind) {
             var newAttrVal = 0;
-            _.each(mapping.params.coeffs, function(coeff, coeffInd) {
-                if (coeffInd < mapping.data.length) {
-                    newAttrVal += coeff * group.data[mapping.data[coeffInd]][ind];
-                    console.log(coeff * group.data[mapping.data[coeffInd]][ind] + "+");
-                }
-                else {
-                    console.log(coeff);
-                    newAttrVal += coeff;
-                }
+            _.each(mapping.coeffs, function(coeff, coeffInd) {
+                newAttrVal = coeff * group.data[mapping.dataField][ind];
+                newAttrVal += coeff;
             });
 
             updateNodes(mapping.attr, newAttrVal, [visData[groupInd].ids[ind]]);
@@ -52,6 +47,8 @@ deconApp.service('VisDataService', ['MarkGroup', '$rootScope', '$timeout',  func
     }
 
     chrome.runtime.onMessage.addListener(function(message, sender) {
+        message.data = CircularJSON.parse(CircularJSON.stringify(message.data));
+        console.log(message.data);
         if (message.type === "restylingData") {
             $rootScope.$apply(function() {
                 var data = message.data;
@@ -97,6 +94,7 @@ deconApp.service('VisDataService', ['MarkGroup', '$rootScope', '$timeout',  func
         }
 
         _.each(pageData[visID].schematized, function(group) {
+            console.log(group);
             visData.push(MarkGroup.fromJSON(group));
         });
     }

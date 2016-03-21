@@ -4,12 +4,12 @@
         <div class="panel panel-default">
             <div ng-if="!isLinear(mapping)" class="nominal panel-heading">
                 <a data-toggle="collapse" style="color:black;" data-parent="#mappings" href="#mapping{{$index}}">
-                    {{mapping.data}} &#10141; {{mapping.attr}}
+                    {{mapping.dataField}} &#10141; {{mapping.attr}}
                 </a>
             </div>
             <div ng-if="isLinear(mapping)" class="linear panel-heading">
                 <a data-toggle="collapse" style="color:black;" data-parent="#mappings" href="#mapping{{$index}}">
-                    <span ng-repeat="datum in mapping.data">{{datum}}<span ng-if="!$last">,</span> </span> &#10141; {{mapping.attr}}
+                    <span ng-repeat="datum in [mapping.dataField]">{{datum}}<span ng-if="!$last">,</span> </span> &#10141; {{mapping.attr}}
                 </a>
             </div>
 
@@ -41,10 +41,10 @@
                             {{mapping.attr}} =
                         </th>
                     </tr>
-                    <tr ng-repeat="coeff in mapping.params.coeffs">
+                    <tr ng-repeat="coeff in mapping.coeffs">
                         <td>
                             <span ng-if="$index !== 0">+</span>
-                            <span ng-if="$index !== mapping.data.length">{{mapping.data[$index]}}&nbsp;*</span>
+                            <span ng-if="$index !== mapping.coeffs.length">{{mapping.dataField}}&nbsp;*</span>
                         </td>
                         <td>
                             {{coeff}}
